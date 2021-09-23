@@ -55,30 +55,34 @@ class ClickWeb(): # ce code sert a aller dans une page web cliquer sur sign in'l
         driver=webdriver.Chrome()
         driver.get(Url1)
         driver.maximize_window()
+        #driver.implicitly_wait() ;  cela sert comme el time.sleep, sauf que ici selenium va attendre 10 seconde si ils ne trouee pas les element si il trouve pas il relance le code 10s etc etc, si je relance mon code le pagre se charge , il va attendre A0seconde il va relancer le code
 
         FindXpath= driver.find_element(By.XPATH,"//div[@id='navbar-inverse-collapse']/div//a[@href='/login']").click()
         # autre ecriture FindXpath.clcik()
         #Url2='https://courses.letskodeit.com/login'
         #driver.get(Url2)
-        FindXpath2=driver.find_element(By.XPATH,"/html//input[@id='email']").send_keys("gggg@gmail.com")
+        ecriture_mail="gggg@gmail.com"
+        FindXpath2=driver.find_element(By.XPATH,"/html//input[@id='email']").send_keys(ecriture_mail)
+
         # autre ecriture FindXpath2.send_keys("gggg@gmail.com")
-        if FindXpath2 == "gggg@gmail.com":
+        
+        if FindXpath2 == "gggg@gmail.com" : #le if ne marche trouver comment réussir ce code !!!!!!
             print('le champs est bien renseigner')
         else:
             print("le champs n'est pas bien renseigner")
         
-        time.sleep(5)
+        time.sleep(3)
        
         FindXpath3=driver.find_element(By.XPATH,"/html//input[@id='password']").send_keys("koko") 
         # autre ecriture FindXpath3.send_keys("koko")
-        time.sleep(5)
+        time.sleep(3)
         
         FindXpath3=driver.find_element(By.XPATH,"/html//input[@id='password']").clear()
-        time.sleep(5)
+        time.sleep(3)
         
         FindXpath3=driver.find_element(By.XPATH,"/html//input[@id='password']").send_keys("koko")
         # autre ecriture FindXpath3.send_keys("koko")
-        time.sleep(5)
+        time.sleep(3)
        
         FindXpath4=driver.find_element(By.XPATH,"//input[@value='Login']").click()
         # autre ecriture FindXpath4.click()
